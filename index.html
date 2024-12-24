@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FDJASVS X</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure footer stays at bottom */
+        }
+
+        /* Home Section */
+        #home {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        /* Global section styles */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #222;
+            color: white;
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px; /* Adjust the size of the logo icon */
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: flex-start;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #ff6347;
+        }
+
+        /* Toggle Button (Hamburger) */
+        .nav-toggle {
+            display: none; /* Hide the toggle button by default */
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            background-color: white;
+            width: 100%;
+            height: 3px;
+        }
+
+        /* About Section */
+        #about h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Authors Section */
+        .authors {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .author {
+            text-align: center;
+        }
+
+        .author-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .author p {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Products Section */
+        #products h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        #products p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Downloads Section */
+        .downloads h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn, .coming-soon {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #ff6347, #ff4500);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .coming-soon {
+            background: #cccccc;
+            color: #666666;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .coming-soon:hover {
+            background: #b8b8b8;
+        }
+
+        .coming-soon:active {
+            background: #999999;
+        }
+
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .contact-link {
+            font-size: 1.1rem;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #ff6347;
+        }
+
+        /* Footer Section */
+        .footer {
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            font-size: 14px;
+            margin-top: auto; /* Ensure footer stays at bottom */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .nav-links li a {
+                font-size: 1.2rem;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+            }
+
+            .authors {
+                flex-direction: column;
+            }
+        }
+
+        /* Birthday Section */
+        #birthday {
+            background-color: #ff6347;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #birthday h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #birthday p {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo with Icon -->
+            <a href="#" class="logo">
+                <img src="icon.png" alt="Icon" class="logo-icon"> FDJASVS X
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section id="home" class="section">
+        <h1>Welcome to FDJASVS X!</h1>
+        <p>Your go-to roblox awesome services and products.</p>
+    </section>
+
+    <!-- Happy Birthday Section -->
+    <section id="birthday" class="birthday-section">
+        <h2>🎉 Happy Birthday FDJASVS! 🎉</h2>
+        <p>Wishing you an amazing year ahead filled with success, joy, and more awesome projects!</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <h2>Products</h2>
+        <p>Explore our projects.</p>
+        
+        <!-- Downloads Section -->
+        <div class="downloads">
+            <h3>Download our Apps</h3>
+            <div class="download-buttons">
+                <a href="Download.zip" class="btn download-btn">Download FDJASVS X Bootstrapper</a>
+                <a href="#" class="btn coming-soon">Octo-Loader (Coming Soon)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>We are a group of 2 people working on amazing projects.</p>
+
+        <!-- Authors Images -->
+        <div class="authors">
+            <div class="author">
+                <img src="bluelands_mc_image.jpg" alt="Bluelands_MC" class="author-img">
+                <p><a href="https://www.youtube.com/@Bluelands_MC" class="contact-link">Bluelands_MC</a></p>
+            </div>
+            <div class="author">
+                <img src="fdjasvs_image.jpg" alt="FDJASVS" class="author-img">
+                <p><a href="https://www.youtube.com/@FDJASVS" class="contact-link">FDJASVS</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out for any issues with apps or suggestions!</p>
+        <div class="contact-links">
+            <a href="https://bsky.app/profile/fdjasvs-x.bsky.social" target="_blank" class="contact-link">Bluesky</a>
+            <a href="https://www.youtube.com/@FDJASVS-X" target="_blank" class="contact-link">YouTube</a>
+            <a href="mailto:FDJASVS-X@protonmail.com" class="contact-link">Email</a>
+            <a href="https://www.instagram.com/fdjasvs-x" target="_blank" class="contact-link">Instagram</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 FDJASVS X. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
